@@ -1,0 +1,48 @@
+{
+    "title": "JavaScript",
+    "path": "javascript",
+    "children": [
+        {
+            "title": "Foundations",
+            "path": "foundations",
+            "children": [
+                {
+                    "title": "Variables",
+                    "path": "variables"
+                },
+                {
+                    "title": "Data Types",
+                    "path": "data-types"
+                }
+            ]
+        },
+        {
+            "title": "Functions",
+            "path": "functions",
+            "children": [
+                {
+                    "title": "Arrow Functions",
+                    "path": "arrow-functions"
+                },
+                {
+                    "title": "Closures",
+                    "path": "closures"
+                }
+            ]
+        },
+        {
+            "title": "Objects",
+            "path": "objects",
+            "children": [
+                {
+                    "title": "Prototypes",
+                    "path": "prototypes"
+                },
+                {
+                    "title": "Classes",
+                    "path": "classes"
+                }
+            ]
+        }
+    ]
+}

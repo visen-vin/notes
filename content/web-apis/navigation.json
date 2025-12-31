@@ -1,0 +1,20 @@
+{
+    "title": "Web APIs",
+    "path": "web-apis",
+    "children": [
+        {
+            "title": "Attribution Reporting API",
+            "path": "attribution-reporting",
+            "children": [
+                {
+                    "title": "Overview",
+                    "path": "overview"
+                },
+                {
+                    "title": "Concepts",
+                    "path": "concepts"
+                }
+            ]
+        }
+    ]
+}
