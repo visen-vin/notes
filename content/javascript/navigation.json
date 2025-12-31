@@ -19,15 +19,15 @@
           "path": "ep-03-hoisting"
         },
         {
-          "title": "Ep 4: Functions & Variable Environment",
+          "title": "Ep 4: How Functions Work & Variable Environment",
           "path": "ep-04-functions-variable-environment"
         },
         {
-          "title": "Ep 5: Shortest JS Program",
+          "title": "Ep 5: Shortest JS Program, window & this keyword",
           "path": "ep-05-shortest-js-program"
         },
         {
-          "title": "Ep 6: undefined vs not defined",
+          "title": "Ep 6: undefined vs not defined in JS",
           "path": "ep-06-undefined-vs-not-defined"
         },
         {
