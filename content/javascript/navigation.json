@@ -139,6 +139,10 @@
         {
           "title": "Ep 13: Debouncing & Throttling in JavaScript",
           "path": "ep-13-debouncing-throttling"
+        },
+        {
+          "title": "Ep 14: Async vs Defer in JavaScript",
+          "path": "ep-14-async-defer"
         }
       ]
     }
