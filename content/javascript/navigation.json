@@ -31,51 +31,51 @@
           "path": "ep-06-undefined-vs-not-defined"
         },
         {
-          "title": "Ep 7: The Scope Chain",
+          "title": "Ep 7: The Scope Chain, Scope & Lexical Environment",
           "path": "ep-07-scope-chain"
         },
         {
-          "title": "Ep 8: let & const",
+          "title": "Ep 8: let & const in JS, Temporal Dead Zone",
           "path": "ep-08-let-const"
         },
         {
-          "title": "Ep 9: Block Scope & Shadowing",
+          "title": "Ep 9: Block Scope & Shadowing in JS",
           "path": "ep-09-block-scope-shadowing"
         },
         {
-          "title": "Ep 10: Closures",
+          "title": "Ep 10: Closures in JS",
           "path": "ep-10-closures"
         },
         {
-          "title": "Ep 11: setTimeout + Closures",
+          "title": "Ep 11: setTimeout + Closures Interview Question",
           "path": "ep-11-settimeout-closures"
         },
         {
-          "title": "Ep 12: Crazy JS Interview (Closures)",
+          "title": "Ep 12: CRAZY JS INTERVIEW ft. Closures",
           "path": "ep-12-crazy-js-interview"
         },
         {
-          "title": "Ep 13: First Class Functions",
+          "title": "Ep 13: First Class Functions ft. Anonymous Functions",
           "path": "ep-13-first-class-functions"
         },
         {
-          "title": "Ep 14: Callback Functions",
+          "title": "Ep 14: Callback Functions in JS ft. Event Listeners",
           "path": "ep-14-callback-functions"
         },
         {
-          "title": "Ep 15: Event Loop",
+          "title": "Ep 15: Asynchronous JavaScript & EVENT LOOP from scratch",
           "path": "ep-15-event-loop"
         },
         {
-          "title": "Ep 16: JS Engine Architecture",
+          "title": "Ep 16: JS Engine EXPOSED (V8 Architecture)",
           "path": "ep-16-js-engine-architecture"
         },
         {
-          "title": "Ep 17: Trust Issues with setTimeout",
+          "title": "Ep 17: Trust Issues with setTimeout()",
           "path": "ep-17-trust-issues-settimeout"
         },
         {
-          "title": "Ep 18: Higher-Order Functions",
+          "title": "Ep 18: Higher-Order Functions ft. Functional Programming",
           "path": "ep-18-higher-order-functions"
         },
         {
@@ -101,12 +101,16 @@
           "path": "ep-03-creating-promise-chaining-error-handling"
         },
         {
-          "title": "Ep 4: Async await",
+          "title": "Ep 4: async await",
           "path": "ep-04-async-await"
         },
         {
-          "title": "Ep 5: Promise APIs + Interview Questions",
+          "title": "Ep 5: Promise APIs (all, allSettled, race, any)",
           "path": "ep-05-promise-apis-interview-questions"
+        },
+        {
+          "title": "Ep 6: this keyword in JavaScript",
+          "path": "ep-06-this-keyword"
         }
       ]
     }
