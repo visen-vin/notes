@@ -525,6 +525,10 @@ a:hover {
   /* Wrapper handles margin */
 }
 
+.language-html {
+  padding-top: 2rem;
+}
+
 /* Language Label */
 .code-controls {
   position: absolute;
@@ -676,8 +680,10 @@ a:hover {
 .markdown-body pre {
   background: #232323;
   /* Darker code block */
-  padding: 1.25rem;
-  /* Top padding for header */
+  color: #e6edf3;
+  /* Light text for contrast */
+  padding: 2.75rem 1.25rem 1.25rem 1.25rem;
+  /* Increased top padding for window controls */
   border-radius: var(--radius-lg);
   overflow-x: auto;
   margin-bottom: 1.5rem;
@@ -806,6 +812,7 @@ a:hover {
     /* Allow columns to shrink as much as needed */
   }
 }
+
 /* Sub-topics list styling */
 .sub-topics {
   margin-top: 2rem;

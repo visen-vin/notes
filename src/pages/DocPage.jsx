@@ -59,23 +59,21 @@ function CodeBlock({ inline, className, children, ...props }) {
         }
     };
 
-    if (!inline && match) {
+    if (isJS) {
         return (
-            <div className={`code-block-wrapper ${isJS ? 'has-controls' : ''}`}>
-                {isJS && (
-                    <div className="code-controls">
-                        <button
-                            className="edit-button"
-                            onClick={() => setIsEditing(!isEditing)}
-                            aria-label={isEditing ? "Save Code" : "Edit Code"}
-                        >
-                            {isEditing ? 'Save' : 'Edit'}
-                        </button>
-                        <button className="run-button" onClick={runCode}>
-                            ▶ Run
-                        </button>
-                    </div>
-                )}
+            <div className="code-block-wrapper has-controls">
+                <div className="code-controls">
+                    <button
+                        className="edit-button"
+                        onClick={() => setIsEditing(!isEditing)}
+                        aria-label={isEditing ? "Save Code" : "Edit Code"}
+                    >
+                        {isEditing ? 'Save' : 'Edit'}
+                    </button>
+                    <button className="run-button" onClick={runCode}>
+                        ▶ Run
+                    </button>
+                </div>
 
                 {isEditing ? (
                     <textarea
