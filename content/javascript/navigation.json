@@ -115,6 +115,30 @@
         {
           "title": "Ep 7: Currying in JavaScript",
           "path": "ep-07-currying"
+        },
+        {
+          "title": "Ep 8: Tricky Recursion - sum(1)(2)...(n)()",
+          "path": "ep-08-tricky-recursion"
+        },
+        {
+          "title": "Ep 9: Prototype & Prototypal Inheritance",
+          "path": "ep-09-prototypes"
+        },
+        {
+          "title": "Ep 10: Event Bubbling, Capturing (Trickling)",
+          "path": "ep-10-event-propagation"
+        },
+        {
+          "title": "Ep 11: Event Delegation",
+          "path": "ep-11-event-delegation"
+        },
+        {
+          "title": "Ep 12: Polyfill for bind method",
+          "path": "ep-12-polyfill-bind"
+        },
+        {
+          "title": "Ep 13: Debouncing & Throttling in JavaScript",
+          "path": "ep-13-debouncing-throttling"
         }
       ]
     }
