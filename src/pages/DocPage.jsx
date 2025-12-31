@@ -1,8 +1,133 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { resolveRoute, getMarkdownContent, getPagination } from '../lib/content';
+
+// Separate component to handle state for each code block
+function CodeBlock({ inline, className, children, ...props }) {
+    const match = /language-(\w+)/.exec(className || '');
+    const language = match ? match[1] : '';
+
+    // State for code content (editable)
+    const [code, setCode] = useState(String(children).replace(/\n$/, ''));
+    const [isEditing, setIsEditing] = useState(false);
+
+    // State for execution
+    const [output, setOutput] = useState(null);
+    const [error, setError] = useState(null);
+    const [isConsoleOpen, setIsConsoleOpen] = useState(true);
+
+    // Ref for textarea auto-resize
+    const textareaRef = useRef(null);
+
+    // Only enable features for explicit javascript/js blocks
+    const isJS = !inline && (language === 'javascript' || language === 'js');
+
+    // Auto-resize textarea to fit content
+    useEffect(() => {
+        if (textareaRef.current && isEditing) {
+            const textarea = textareaRef.current;
+            textarea.style.height = 'auto';
+            textarea.style.height = `${textarea.scrollHeight}px`;
+        }
+    }, [code, isEditing]);
+
+    const runCode = () => {
+        setOutput([]);
+        setError(null);
+        setIsConsoleOpen(true); // Auto-open console when code runs
+
+        const logs = [];
+        // Mock console.log
+        const mockLog = (...args) => {
+            logs.push(args.map(arg =>
+                typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+            ).join(' '));
+        };
+
+        try {
+            const func = new Function('console', code);
+            func({ log: mockLog });
+
+            if (logs.length === 0) {
+                logs.push("Code executed successfully (no output)");
+            }
+            setOutput(logs);
+        } catch (err) {
+            setError(err.toString());
+        }
+    };
+
+    if (!inline && match) {
+        return (
+            <div className={`code-block-wrapper ${isJS ? 'has-controls' : ''}`}>
+                {isJS && (
+                    <div className="code-controls">
+                        <button
+                            className="edit-button"
+                            onClick={() => setIsEditing(!isEditing)}
+                            aria-label={isEditing ? "Save Code" : "Edit Code"}
+                        >
+                            {isEditing ? 'Save' : 'Edit'}
+                        </button>
+                        <button className="run-button" onClick={runCode}>
+                            ▶ Run
+                        </button>
+                    </div>
+                )}
+
+                {isEditing ? (
+                    <textarea
+                        ref={textareaRef}
+                        className="code-textarea"
+                        value={code}
+                        onChange={(e) => setCode(e.target.value)}
+                        spellCheck="false"
+                    />
+                ) : (
+                    <code className={className} {...props}>
+                        {code}
+                    </code>
+                )}
+
+                {(output || error) && (
+                    <div className="code-console-wrapper">
+                        <div
+                            className="console-header"
+                            onClick={() => setIsConsoleOpen(!isConsoleOpen)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => e.key === 'Enter' && setIsConsoleOpen(!isConsoleOpen)}
+                        >
+                            <span className="console-title">Console Output</span>
+                            <span className={`console-chevron ${isConsoleOpen ? 'open' : ''}`}>▼</span>
+                        </div>
+                        {isConsoleOpen && (
+                            <div className="code-console">
+                                {error ? (
+                                    <div className="console-error">{error}</div>
+                                ) : (
+                                    output.map((log, i) => (
+                                        <div key={i} className="console-log">
+                                            <span className="console-arrow">&gt;</span> {log}
+                                        </div>
+                                    ))
+                                )}
+                            </div>
+                        )}
+                    </div>
+                )}
+            </div>
+        );
+    }
+
+    return (
+        <code className={className} {...props}>
+            {children}
+        </code>
+    );
+}
 
 export default function DocPage() {
     const location = useLocation();
@@ -45,7 +170,15 @@ export default function DocPage() {
             )}
 
             {type === 'page' ? (
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                        code: CodeBlock,
+                        pre({ children }) {
+                            return <pre>{children}</pre>;
+                        }
+                    }}
+                >
                     {content}
                 </ReactMarkdown>
             ) : (

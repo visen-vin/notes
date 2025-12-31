@@ -15,7 +15,7 @@ export default function MainLayout() {
 
     return (
         <div className="app-container">
-            <header className="mobile-header">
+            <header className="app-header">
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <button
                         className="menu-toggle"

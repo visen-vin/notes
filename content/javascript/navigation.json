@@ -1,48 +1,114 @@
 {
-    "title": "JavaScript",
-    "path": "javascript",
-    "children": [
+  "title": "JavaScript",
+  "path": "javascript",
+  "children": [
+    {
+      "title": "Season 1",
+      "path": "season-1",
+      "children": [
         {
-            "title": "Foundations",
-            "path": "foundations",
-            "children": [
-                {
-                    "title": "Variables",
-                    "path": "variables"
-                },
-                {
-                    "title": "Data Types",
-                    "path": "data-types"
-                }
-            ]
+          "title": "Ep 1: How JavaScript Works & Execution Context",
+          "path": "ep-01-execution-context"
         },
         {
-            "title": "Functions",
-            "path": "functions",
-            "children": [
-                {
-                    "title": "Arrow Functions",
-                    "path": "arrow-functions"
-                },
-                {
-                    "title": "Closures",
-                    "path": "closures"
-                }
-            ]
+          "title": "Ep 2: How JavaScript Code is Executed & Call Stack",
+          "path": "ep-02-call-stack"
         },
         {
-            "title": "Objects",
-            "path": "objects",
-            "children": [
-                {
-                    "title": "Prototypes",
-                    "path": "prototypes"
-                },
-                {
-                    "title": "Classes",
-                    "path": "classes"
-                }
-            ]
+          "title": "Ep 3: Hoisting in JavaScript (Variables & Functions)",
+          "path": "ep-03-hoisting"
+        },
+        {
+          "title": "Ep 4: Functions & Variable Environment",
+          "path": "ep-04-functions-variable-environment"
+        },
+        {
+          "title": "Ep 5: Shortest JS Program",
+          "path": "ep-05-shortest-js-program"
+        },
+        {
+          "title": "Ep 6: undefined vs not defined",
+          "path": "ep-06-undefined-vs-not-defined"
+        },
+        {
+          "title": "Ep 7: The Scope Chain",
+          "path": "ep-07-scope-chain"
+        },
+        {
+          "title": "Ep 8: let & const",
+          "path": "ep-08-let-const"
+        },
+        {
+          "title": "Ep 9: Block Scope & Shadowing",
+          "path": "ep-09-block-scope-shadowing"
+        },
+        {
+          "title": "Ep 10: Closures",
+          "path": "ep-10-closures"
+        },
+        {
+          "title": "Ep 11: setTimeout + Closures",
+          "path": "ep-11-settimeout-closures"
+        },
+        {
+          "title": "Ep 12: Crazy JS Interview (Closures)",
+          "path": "ep-12-crazy-js-interview"
+        },
+        {
+          "title": "Ep 13: First Class Functions",
+          "path": "ep-13-first-class-functions"
+        },
+        {
+          "title": "Ep 14: Callback Functions",
+          "path": "ep-14-callback-functions"
+        },
+        {
+          "title": "Ep 15: Event Loop",
+          "path": "ep-15-event-loop"
+        },
+        {
+          "title": "Ep 16: JS Engine Architecture",
+          "path": "ep-16-js-engine-architecture"
+        },
+        {
+          "title": "Ep 17: Trust Issues with setTimeout",
+          "path": "ep-17-trust-issues-settimeout"
+        },
+        {
+          "title": "Ep 18: Higher-Order Functions",
+          "path": "ep-18-higher-order-functions"
+        },
+        {
+          "title": "Ep 19: map, filter & reduce",
+          "path": "ep-19-map-filter-reduce"
         }
-    ]
+      ]
+    },
+    {
+      "title": "Season 2",
+      "path": "season-2",
+      "children": [
+        {
+          "title": "Ep 1: Callback Hell",
+          "path": "ep-01-callback-hell"
+        },
+        {
+          "title": "Ep 2: Promises",
+          "path": "ep-02-promises"
+        },
+        {
+          "title": "Ep 3: Creating a Promise, Chaining & Error Handling",
+          "path": "ep-03-creating-promise-chaining-error-handling"
+        },
+        {
+          "title": "Ep 4: Async await",
+          "path": "ep-04-async-await"
+        },
+        {
+          "title": "Ep 5: Promise APIs + Interview Questions",
+          "path": "ep-05-promise-apis-interview-questions"
+        }
+      ]
+    }
+  ]
 }
