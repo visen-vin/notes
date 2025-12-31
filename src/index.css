@@ -721,3 +721,65 @@ a:hover {
 .markdown-body blockquote>*:last-child {
   margin-bottom: 0;
 }
+
+/* Table Styling */
+.markdown-body table {
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+  border-collapse: separate;
+  /* Changed for border-radius */
+  border-spacing: 0;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  /* Ensures corners are clipped */
+}
+
+.markdown-body thead {
+  background-color: var(--color-sidebar-bg);
+}
+
+.markdown-body th {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.markdown-body td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.markdown-body tr:last-child td {
+  border-bottom: none;
+}
+
+/* Zebra Striping */
+.markdown-body tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.markdown-body tbody tr:hover {
+  background-color: rgba(96, 165, 250, 0.05);
+  transition: background-color 0.2s ease;
+}
+
+/* Mobile adjustments for tables */
+@media (max-width: 768px) {
+
+  .markdown-body th,
+  .markdown-body td {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+}
