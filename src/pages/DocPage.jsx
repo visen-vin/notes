@@ -136,9 +136,9 @@ export default function DocPage() {
     const [content, setContent] = useState('');
 
     useEffect(() => {
-        if (resolved && resolved.type === 'page') {
+        if (resolved) {
             const markdown = getMarkdownContent(segments);
-            setContent(markdown || '# Content not found\nThe markdown file for this page is missing.');
+            setContent(markdown);
         } else {
             setContent('');
         }
@@ -156,6 +156,7 @@ export default function DocPage() {
 
     const { breadcrumbs, node, type } = resolved;
     const { prev, next } = getPagination(segments);
+    const hasChildren = node.children && node.children.length > 0;
 
     return (
         <article className="markdown-body">
@@ -169,7 +170,7 @@ export default function DocPage() {
                 </nav>
             )}
 
-            {type === 'page' ? (
+            {content && (
                 <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
                     components={{
@@ -188,19 +189,26 @@ export default function DocPage() {
                 >
                     {content}
                 </ReactMarkdown>
-            ) : (
-                <div>
-                    <h1>{node.title}</h1>
-                    <p>Please select a sub-topic from the sidebar or from the list below:</p>
+            )}
+
+            {!content && type !== 'page' && (
+                <h1>{node.title}</h1>
+            )}
+
+            {hasChildren && type !== 'page' && (
+                <div className="sub-topics">
+                    {!content && <p>Please select a sub-topic from the sidebar or from the list below:</p>}
+                    {content && <h2 style={{ marginTop: '3rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem' }}>Sub-topics</h2>}
                     <ul>
-                        {node.children?.map(child => (
+                        {node.children.map(child => (
                             <li key={child.path}>
-                                <Link to={`${location.pathname}/${child.path}`}>{child.title}</Link>
+                                <Link to={`${location.pathname === '/' ? '' : location.pathname}/${child.path}`}>{child.title}</Link>
                             </li>
                         ))}
                     </ul>
                 </div>
             )}
+
 
             {(prev || next) && (
                 <nav className="pagination" aria-label="Previous and Next">

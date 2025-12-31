@@ -806,3 +806,34 @@ a:hover {
     /* Allow columns to shrink as much as needed */
   }
 }
+/* Sub-topics list styling */
+.sub-topics {
+  margin-top: 2rem;
+}
+
+.sub-topics ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-top: 1.5rem;
+}
+
+.sub-topics li {
+  margin-bottom: 0.5rem;
+}
+
+.sub-topics li a {
+  display: block;
+  padding: 0.75rem 1rem;
+  background: var(--color-sidebar-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.sub-topics li a:hover {
+  border-color: var(--color-primary);
+  background: rgba(96, 165, 250, 0.05);
+  transform: translateX(4px);
+}

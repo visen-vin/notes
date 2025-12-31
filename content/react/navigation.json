@@ -3,14 +3,8 @@
     "path": "react",
     "children": [
         {
-            "title": "Season 1",
-            "path": "season-1",
-            "children": [
-                {
-                    "title": "Ep 1: Why React?",
-                    "path": "ep-01-why-react"
-                }
-            ]
+            "title": "Ep 1: Why React?",
+            "path": "ep-01-why-react"
         }
     ]
 }
