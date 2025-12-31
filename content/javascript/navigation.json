@@ -111,6 +111,10 @@
         {
           "title": "Ep 6: this keyword in JavaScript",
           "path": "ep-06-this-keyword"
+        },
+        {
+          "title": "Ep 7: Currying in JavaScript",
+          "path": "ep-07-currying"
         }
       ]
     }
