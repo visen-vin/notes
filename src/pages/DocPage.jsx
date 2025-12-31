@@ -176,6 +176,13 @@ export default function DocPage() {
                         code: CodeBlock,
                         pre({ children }) {
                             return <pre>{children}</pre>;
+                        },
+                        table({ children }) {
+                            return (
+                                <div className="table-wrapper">
+                                    <table>{children}</table>
+                                </div>
+                            );
                         }
                     }}
                 >

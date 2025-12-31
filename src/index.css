@@ -723,19 +723,24 @@ a:hover {
 }
 
 /* Table Styling */
-.markdown-body table {
+.table-wrapper {
   width: 100%;
-  display: block;
   overflow-x: auto;
-  border-collapse: separate;
-  /* Changed for border-radius */
-  border-spacing: 0;
   margin: 2rem 0;
-  font-size: 0.95rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  overflow: hidden;
-  /* Ensures corners are clipped */
+  background-color: var(--color-bg);
+  -webkit-overflow-scrolling: touch;
+}
+
+.markdown-body table {
+  width: 100%;
+  min-width: 100%;
+  display: table;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 0.95rem;
+  table-layout: auto;
 }
 
 .markdown-body thead {
@@ -751,13 +756,18 @@ a:hover {
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   border-bottom: 2px solid var(--color-border);
+  /* Keep headers tidy but cells can wrap */
 }
 
 .markdown-body td {
   padding: 1rem 1.25rem;
   border-bottom: 1px solid var(--color-border);
   color: var(--color-text-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
+  vertical-align: top;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .markdown-body tr:last-child td {
@@ -779,7 +789,20 @@ a:hover {
 
   .markdown-body th,
   .markdown-body td {
-    padding: 0.75rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.75rem 0.5rem;
+    /* Tighter padding for mobile */
+    font-size: 0.8rem;
+  }
+
+  .markdown-body th {
+    white-space: normal;
+    /* Allow header wrapping */
+    word-break: break-word;
+  }
+
+  .markdown-body td {
+    word-break: break-word;
+    min-width: 0;
+    /* Allow columns to shrink as much as needed */
   }
 }
