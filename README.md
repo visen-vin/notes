@@ -1,16 +1,89 @@
-# React + Vite
+# MDN Lite - Documentation Engine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, deterministic, and easy-to-evolve documentation website engine inspired by MDN Web Docs. Built with React and Vite.
 
-Currently, two official plugins are available:
+## 🚀 Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Single Source of Truth**: Hierarchy, ordering, and routing are strictly driven by `navigation.json`.
+- **MDN-Style Navigation**:
+  - Context-aware **Sidebar** with auto-expansion and highlighting.
+  - **Breadcrumbs** for easy path navigation.
+  - **Previous/Next** pagination based on DFS tree traversal.
+- **Modern UI**:
+  - Clean, **Mobile-First** responsive design.
+  - **Dark Mode** support with persistence.
+  - **Premium Typography** using Inter and System fonts.
+  - Card-based pagination and refined markdown styling.
+- **Markdown Support**: 
+  - GitHub Flavored Markdown (GFM) rendering.
+  - Code syntax highlighting.
 
-## React Compiler
+## 🛠️ Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
+- Node.js (v16+)
+- npm
 
-## Expanding the ESLint configuration
+### Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/visen-vin/notes.git
+   cd notes
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+
+### Building for Production
+```bash
+npm run build
+```
+
+## 📂 Project Structure
+
+```
+/content
+  ├── subject-name/
+  │    ├── navigation.json    # Defines hierarchy for this subject
+  │    ├── group-name/
+  │         ├── topic/
+  │              ├── index.md # Content file
+```
+
+## 📝 How to Add Content
+
+1. **Create a Folder**: Inside `content/`, create a folder for your subject or topic.
+2. **Add `navigation.json`**: Define the structure.
+   ```json
+   {
+     "title": "Subject Title",
+     "path": "subject-slug",
+     "children": [
+       {
+         "title": "Group Name",
+         "path": "group-slug",
+         "children": [
+           { "title": "Topic", "path": "topic-slug" }
+         ]
+       }
+     ]
+   }
+   ```
+3. **Add Markdown**: Create `index.md` files corresponding to the paths defined in your JSON.
+
+## 🎨 Customization
+
+- **Styles**: Edit `src/index.css` to change CSS variables for colors, fonts, and spacing.
+- **Components**: Modify React components in `src/components/` to alter the layout or logic.
+
+## 📄 License
+MIT
