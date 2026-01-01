@@ -17,6 +17,14 @@
         {
             "title": "Ep 4: 🚀 Show Me the Code",
             "path": "ep-04-show-me-code"
+        },
+        {
+            "title": "Ep 5: 🚀 Let’s Get Hooked",
+            "path": "ep-05-get-hooked"
+        },
+        {
+            "title": "Ep 6: 🌍 Exploring the World",
+            "path": "ep-06-exploring-world"
         }
     ]
 }
