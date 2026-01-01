@@ -25,6 +25,18 @@
         {
             "title": "Ep 6: 🌍 Exploring the World",
             "path": "ep-06-exploring-world"
+        },
+        {
+            "title": "Ep 7: 🧭 Finding the Path",
+            "path": "ep-07-finding-path"
+        },
+        {
+            "title": "Ep 8: 🚀 Let’s Get Classy",
+            "path": "ep-08-get-classy"
+        },
+        {
+            "title": "Ep 9: ⚡ Optimising Our App",
+            "path": "ep-09-optimising-app"
         }
     ]
 }
