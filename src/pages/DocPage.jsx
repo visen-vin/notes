@@ -3,6 +3,8 @@ import { useLocation, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { resolveRoute, getMarkdownContent, getPagination } from '../lib/content';
+import { useTextToSpeech } from '../hooks/useTextToSpeech';
+
 
 // Separate component to handle state for each code block
 function CodeBlock({ inline, className, children, ...props }) {
@@ -156,6 +158,25 @@ export default function DocPage() {
     const { prev, next } = getPagination(segments);
     const hasChildren = node.children && node.children.length > 0;
 
+    const { speak, stop, isSpeaking, supported } = useTextToSpeech();
+
+    const handleSpeak = () => {
+        if (isSpeaking) {
+            stop();
+        } else {
+            // Strip markdown for cleaner speech
+            const cleanText = content
+                .replace(/#+\s/g, '') // Remove headers
+                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1') // Link text only
+                .replace(/```[\s\S]*?```/g, '') // Remove code blocks
+                .replace(/`([^`]+)`/g, '$1') // Inline code
+                .replace(/\*\*([^*]+)\*\*/g, '$1') // Bold
+                .replace(/\*([^*]+)\*/g, '$1') // Italic
+                .trim();
+            speak(cleanText);
+        }
+    };
+
     return (
         <article className="markdown-body">
             {breadcrumbs && (
@@ -166,6 +187,23 @@ export default function DocPage() {
                         </span>
                     ))}
                 </nav>
+            )}
+
+            {supported && content && (
+                <div className="tts-controls">
+                    <button
+                        className={`tts-button ${isSpeaking ? 'stop' : ''}`}
+                        onClick={handleSpeak}
+                    >
+                        {isSpeaking ? '⏹ Stop Listening' : '🔊 Listen Aloud'}
+                    </button>
+                    {isSpeaking && (
+                        <div className="tts-status">
+                            <span className="tts-pulse"></span>
+                            Speaking...
+                        </div>
+                    )}
+                </div>
             )}
 
             {content && (
